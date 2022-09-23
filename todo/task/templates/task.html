@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+  rel="stylesheet"
+/>
+</head>
+<body>
+    <div class="col-lg-12 bg-warning p-5 text-center text-danger">
+        <h1>ToDo</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <form class="p-5 m-5" action="" method="post">
+            {% csrf_token %}
+                 
+                
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="form5Example1" class="form-control" name='nameinput' value={{f.name}}>
+                    <label class="form-label" for="form5Example1">Name of user</label>
+                </div>
+                <!-- task input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="form5Example1" class="form-control" name='taskinput' value={{f.task}} >
+                    <label class="form-label" for="form5Example1">Task to be done</label>
+                </div>
+                <!-- description input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="form5Example1" class="form-control" name='descriptioninput' value={{f.description}}>
+                    <label class="form-label" for="form5Example1">Description</label>
+                </div>
+                <!-- date input -->
+                <div class="form-outline mb-4">
+                    <input type="date" id="form5Example1" class="form-control" name='dateinput' value={{f.duedate}}>
+                    <label class="form-label" for="form5Example1">Due Date</label>
+                </div>
+                <!-- Submit button -->
+                <div class="col-lg-3"><button type="submit" class="btn btn-primary btn-block mb-4">Submit</button></div>
+                
+            </form>
+
+        </div>
+        <div class="col-lg-5 mt-5 border border-info">
+                <h4 class="pt-4">Task to be completed</h4><br>
+                <div class="col-lg-6 ">
+                {% for item in data%}
+                    {{item.name}}
+                   
+                   <br>
+                   {{item.task}}
+                   <br>
+                   {{item.description}}
+                
+                   <br>
+                   {{item.Duedate}}
+                   <br>
+                    <a href="{% url 'delete' item.id %}" class = 'btn btn-danger' >Done</a>
+                    <a href="{% url 'update' item.id %}" class = 'btn btn-danger' >update</a><br><br>
+                {% endfor %}  
+                    
+                    
+
+                </div>
+
+        </div>
+        
+    </div>
+
+
+
+    
+</body>
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
+></script>
+</html>
