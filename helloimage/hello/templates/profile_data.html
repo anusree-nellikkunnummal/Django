@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    {% extends 'base.html' %}
+
+    {% block content %}
+    
+    <div class="row bg-info ">
+        <div class="col-lg-8 ms-5 mx-auto"> 
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Profession</th>
+                    <th scope="col">Photo</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                    {% for item in data %}
+                    <tr class="table-danger">
+                        <td>{{item.name}}</td>
+                        <td>{{item.age}}</td>
+                        <td>{{item.address}}</td>
+                        <td>{{item.profession}}</td>
+                        <td><img src="{{item.photo.url}} " alt="" style="height:50px; width:50px" ></td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                </table>
+                
+        
+        </div><br>
+    </div>
+        
+   
+    
+    {% endblock content %}
+</html>
