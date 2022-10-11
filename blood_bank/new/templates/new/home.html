@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+rel="stylesheet"/>
+ 
+</head>
+<body>
+    {% extends 'new/base.html'%}  
+    {% block content %}
+
+<!-- MDB -->
+<!-- carousel header -->
+
+<header>
+   
+    <!-- Background image -->
+    <div
+      class="p-5 text-center bg-image"
+      style="
+        background-image: url('{% static 'images/%}');
+        height: 400px;  
+      "
+    >
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <div class="text-white">
+            <h1 class="mb-3 ">Welcome to Life Blood Bank</h1>
+            <h4 class="mb-3 ">Sharing Life. Saving Lives</h4>
+            <a class="btn btn-outline-light btn-lg" href="{% url 'register' %}" role="button"
+            >Register</a>
+            <a class="btn btn-outline-light btn-lg" href="{% url 'logs' %}" role="button"
+            >LOGIN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Background image -->
+  </header>
+  <!-- main -->
+  <main>
+    <div class="row">
+        <div class="col-lg-8">
+            <p class="lead">
+                We are passionate about blood banking. Passionate about blood availability to every needy patient. Our compassion towards the human sufferings is the major factor that drives us for excellence in prompt and quality services to the society.</p>
+            <h4 class="text-danger">Blood Availability</h4>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Blood Broup</th>
+                    <th scope="col">Whole Blood</th>
+                    <th scope="col">Packed Cells</th>
+                    <th scope="col">Frozen Plasma</th>
+                    <th scope="col">Platelet</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">A+</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                  </tr>
+              
+                  <tr class="table-primary">
+                    <th scope="row">A-</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                  </tr>
+                  <tr class="table-secondary">
+                    <th scope="row">B+</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                  </tr>
+                  <tr class="table-success">
+                    <th scope="row">B-</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                  </tr>
+                  <tr class="table-danger">
+                    <th scope="row">O+</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                  </tr>
+                  <tr class="table-warning">
+                    <th scope="row">O-</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                  </tr>
+                  <tr class="table-info">
+                    <th scope="row">AB+</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                  </tr>
+                  <tr class="table-light">
+                    <th scope="row">AB-</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            <h4 class="text-danger">Upcoming Campus</h4>
+           
+            <table class="table">
+              <thead>
+                <tr class="bg-gray">
+                  <th scope="col">Date</th>
+                  <th scope="col">Camp Venue</th>
+                  <th scope="col">Timing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">cell</th>
+                  <td>cell</td>
+                  <td>cell</td>
+                 
+                </tr>
+            </tbody>
+        </table>
+              
+        </div>
+        <!-- Book A camp -->
+    <div class="col-lg-4">
+        <h4 class="text-danger mt-5 ">Book a camp</h4>
+        <p>Note:Please give 15 Days Notice</p>
+    <!-- Gutter g-1 -->
+    <div class="row g-2">
+    <div class="col">
+      <!-- Name input -->
+      <div class="form-outline">
+        <input type="text" id="form9Example1" class="form-control" />
+        <label class="form-label" for="form9Example1">Name</label>
+      </div>
+    </div>
+    <div class="col">
+      <!-- Email input -->
+      <div class="form-outline">
+        <input type="email" id="form9Example2" class="form-control" />
+        <label class="form-label" for="form9Example2">Organization Name</label>
+      </div>
+    </div>
+    </div>
+    <hr />
+    <!-- Gutter g-5 -->
+    <div class="row g-2">
+    <div class="col-lg-6">
+      <!-- Name input -->
+      <div class="form-outline">
+        <input type="text" id="form9Example3" class="form-control" />
+        <label class="form-label" for="form9Example3">Mobile Number</label>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <!-- Email input -->
+      <div class="form-outline">
+        <input type="email" id="form9Example4" class="form-control" />
+        <label class="form-label" for="form9Example4">Email address</label>
+      </div>
+    </div>
+    </div>
+    <!-- date -->
+    <hr />
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="form-outline">
+              <input type="date" id="form9Example3" class="form-control" />
+              <label class="form-label" for="form9Example3">Date</label>
+            </div>
+        </div>
+      <div class="col-lg-4"><button type="button" class="btn btn-danger">Book now</button></div>
+    </div>
+    <main>
+    <br>
+        <!-- Become a doner -->
+    <div class="col-lg-12">
+    <h4 class="text-danger mt-5">Become a Donor</h4>
+    </div> 
+            <!-- Gutter g-1 -->
+    <form action="" method="post">
+      {% csrf_token %}
+    <div class="row g-1">
+        
+  
+    <div class="col-lg-6">
+    <!-- Name input -->
+    <div class="form-outline">
+        <input type="text" id="form9Example1" class="form-control" name="name" />
+        <label class="form-label" for="form9Example1" >Full Name</label>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <!-- Email input -->
+    <div class="form-outline">
+        <input type="text" id="form9Example2" class="form-control" name="number"/>
+        <label class="form-label" for="form9Example2" >Mobile Number</label>
+    </div>
+    </div>
+        
+    <hr />
+    <!-- Gutter g-5 -->
+    <div class="row g-2">
+    <!-- Email input -->
+    <div class="form-outline col-lg-5">
+        <input type="email" id="form9Example4" class="form-control" name="mail"/>
+        <label class="form-label" for="form9Example4" >Email address</label>
+    </div>
+    <div class="form-outline col-lg-5 ms-2">
+      <input type="password" id="form9Example4" class="form-control" name="password"/>
+      <label class="form-label" for="form9Example4" >Password</label>
+    </div>
+  <hr />
+  <div class="form-outline col-lg-3">
+    <input type="text" id="form9Example4" class="form-control" name="age"/>
+    <label class="form-label" for="form9Example4" >Age</label>
+  </div>
+  <div class="col-lg-4 ms-2">
+        <input type="text" name="bgroup">
+  </div>
+  <div class="col-lg-1"><a href=""><input type="submit" value="signup"></a></div>
+   
+    </div>
+        <!-- date -->
+        <hr />   
+    </div>
+    </form>
+    </main>
+    
+    <section>
+    <div class="row">
+        <div class="col-lg-4">
+            <a href="" class="text-danger">Organize a Blood Drive</a>
+            <p>Blood donation drives/camps are a way of facilitating blood collection from society. Donors voluntarily come to donate in camps.</p>
+        </div>
+    
+        <div class="col-lg-4">
+            <a href="" class="text-danger">How Do I Get Blood</a>
+            <p>When you need blood, your doctor will advise you to get a specific component in specific quantity.</p>
+        
+        </div>
+    
+        <div class="col-lg-4">
+            <a href="" class="text-danger">Our Core Values</a>
+            <p>We are passionate about blood banking. Passionate about blood availability to every needy patient.</p>
+        </div>
+    </div>
+    </section>
+  </div>
+  </main>
+  {% endblock content%}
+
+</body>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
+></script>
+</html>
