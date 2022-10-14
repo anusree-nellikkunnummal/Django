@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+
+
+<body>
+    {% extends 'adminbase.html' %}
+    {% block content %}
+<br><br>
+<div class="container">
+    
+    <H4 class="text-center">Blood Requested</H4><br>
+   
+   <h5 class="text-center" style="color: red;"> </h5><br>
+
+
+
+    <table class="table table-light table-hover table-bordered table-striped">
+        <thead class="bg-info">
+            <tr>
+                <th scope="col">Patient Name</th>
+                <th scope="col">Age</th>
+                
+                <th scope="col">Reason</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Unit (in ml)</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+                <th class="text-right">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td> cell</td>
+                <td>cell</td>
+                
+                
+                <td>cell</td>
+                <td>cell</td>
+                <td>cell</td>
+                <td>cell</td>
+                <td>cell</td>
+                
+                
+                <td class="text-right">
+                   
+                    <button class="btn btn-primary badge-pill" style="width: 100px;"><a  style="text-decoration: none;color: white;" href="">Approve</a> </button>
+                    <button class="btn btn-danger badge-pill" style="width: 80px;"><a  style="text-decoration: none;color: white;" href="">Reject</a> </button>
+                    
+                </td>
+            </tr>
+            
+
+        </tbody>
+    
+    </table>
+
+
+</div>
+{% endblock content %}
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>
