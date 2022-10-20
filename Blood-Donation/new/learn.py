@@ -37,3 +37,47 @@ def profile(request):
         for i in data:
             return render (request, 'user.html', {'i':i})
         return render(request, 'user.html')
+
+def register(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 =  request.POST.get('password2')
+        name = request.POST.get('name')
+        age = request.POST.get('age')
+        role = 'user'
+
+        if password1 == password2:
+            if User.objects.filter(username=username).exists():
+                return redirect('registerpage')
+            elif User.objects.filter(email=email).exists():
+                return redirect('registerpage')
+            else:
+                user = User.objects.create_user(username=username, email=email, password=password1)
+                user.save()
+                userdetails = models.Connect(name=name, age=age, role=role)
+                userdetails.save()
+        else:
+            return redirect('registerpage')
+        
+        return redirect('logs')
+    
+    else:
+        return render(request, 'register.html')
+
+
+def logs(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        user = authenticate(request, username=username, password=password)
+        if user is not None and role = 'user':
+            auth_login(request, user)
+            return redirect('user.html')
+        elif username=='dell' and password == '1234':
+            return redirect('admin')
+        else:
+            pass
+        

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="/new/static/css/main.css">
+<!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"rel="stylesheet"/>
+<style>
+.main_div {
+    text-align:center;
+    position: relative;
+   
+}
+.sub_div {
+    position: absolute;
+    bottom: 0px;
+}
+
+</style>
+
+</head>
+
+<body>
+    {% extends 'blood/base.html'%}  
+    {% block content %}
+
+<header> 
+    <!-- Background image -->
+    <div class="pb-5 text-center bg-image mb-0 pb-5" style="background-color: #df2c2c; height: 400px;">
+      <div class="mask" style="background-color: rgba(255, 255, 255, 0.6);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <div class="text-white d-flext align-items-center justify-content-center">
+            <h1 class="mt-5 pt-5">Welcome to Ventid Blood Bank</h1>
+            <h4 class="m-3 ">It may be a drop for you but it is an ocean for someone.</h4>
+            <a class="btn btn-danger btn-lg" href="{% url 'register' %}" role="button"
+            >Register</a>
+            <a class="btn btn-danger btn-lg" href="{% url 'logs' %}" role="button"
+            >LOGIN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</header>    
+
+
+
+<!-- main -->
+<main class=" text-center bg-image text-danger main_div" style=" background-image: url('/new/static/images/homepage.jpg'); height: 60vh;">
+
+<section class="">
+  <div class="container-fluid">
+    <div class="card-group">
+      <div class="card">
+        <img class="card-img-top" src="static/images/why donate.jpg" alt="Card image cap" >
+        <div class="card-body">
+          <h5 class="card-title">How To Donate</h5>
+          <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque possimus cumque quibusdam, quae fugiat iure ut velit dignissimos obcaecati accusantium perspiciatis sapiente omnis laboriosam, voluptatibus deserunt blanditiis illo minima reiciendis sed cum aut asperiores commodi quidem accusamus. Minus eveniet nulla molestiae? Reiciendis voluptas fugit voluptate cupiditate assumenda corrupti vel dolores.</p>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="static/images/how donate.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Why give Blood</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis nihil nam, dolorum laboriosam iste ad natus enim ipsa repudiandae veniam laborum quas repellat quibusdam distinctio tempore? Vel corporis eos deserunt explicabo impedit aliquid, corrupti vero facilis minus quis, ullam exercitationem magnam ducimus mollitia amet saepe assumenda debitis maxime eius placeat.</p>
+         
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="static/images/howget blood.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">How to get blood</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ratione delectus dolor enim illo a facere omnis recusandae in fugit, eum deserunt id quasi explicabo? Aliquid delectus corporis ab quidem! Maiores ratione recusandae id, voluptas aperiam possimus rerum consequatur quibusdam! Ipsam recusandae perferendis omnis porro, dolorum facere delectus cumque aspernatur.</p>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+  {% endblock content%}
+
+</body>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
+></script>
+</html>
