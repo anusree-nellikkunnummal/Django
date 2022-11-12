@@ -149,7 +149,7 @@ body{
     font-size: 2ex;
 }
 
-    </style>
+</style>
 </head>
 <body>
 
@@ -173,13 +173,8 @@ body{
         <ul>
             <li><a style="text-decoration:none;" href="{% url 'home' %}"><i class="fas fa-home"></i>Home</a></li>
             <li><a style="text-decoration:none;" href="{% url 'donorprofile' %}"><i class="fas fa-home"></i>profile</a></li>
-            <li><a style="text-decoration:none;" href="/donor/donate-blood"><i class="fas fa-hand-holding-medical"></i>Donate Blood</a></li>
-            <li><a style="text-decoration:none;" href="/donor/donation-history"><i class="fas fa-history"></i>Donation History</a></li>
-            <li><a style="text-decoration:none;" href="/donor/make-request"><i class="fas fa-sync-alt"></i>Blood Request</a></li>
-            <li><a style="text-decoration:none;" href="/donor/request-history"><i class="fas fa-history"></i>Request History</a></li>
-
-        
-        </ul> 
+            <li><a style="text-decoration:none;" href="{% url 'patientrequest_to_donor' %}"><i class="fas fa-history"></i>Patient Request </a></li>
+        </ul>   
 
     </div>
     <div class="main_content">
@@ -188,6 +183,7 @@ body{
 {% block content %}
 
 {% endblock content %}
+<br><br><br><br><br><br>
 <!-- Footer -->
 <section class="text-center text-white" style="background-color: #d70c0c;">
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);"></div>

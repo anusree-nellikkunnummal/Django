@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from new.models import Connect, Donor
+from new.models import Bloodbank, Connect, Donor 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import authenticate
@@ -54,44 +54,51 @@ def register(request):
         return render(request, 'patient/regs.html')
 
 # common login here
+
 def logs(request):
+
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        data = Connect.objects.all().values()
-        print(data)
-        for i in data:
-            role = i['role']
-            status = i['status']
-        content = Donor.objects.all().values()
-        print(content)
-        for i in content:
-            role = i['role']
-            status = i['status']
-       
-        user = authenticate(request, username=username, password=password)
-        if user is not None and role == 'user' and status == '1':
-            auth_login(request, user)
-            return redirect(request, 'patientdashboard')
-        elif username == 'dell' and password == '1234':
-            return redirect('admindashboard')
-        elif user is not None and role == 'donor' and status == '1':
-            auth_login(request, user)
-            return redirect('donordashboard')
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        if User.objects.filter(username=username).exists():
+            p = User.objects.filter(username=username).values()
+            for i in p:
+                id = i['id']
+            if Connect.objects.filter(user_id=id).exists():
+                patient = Connect.objects.filter(user_id=id).values()
+                for i in patient:
+                    role = i['role']
+                    status = i['status']
+                user = authenticate(request, username=username, password=password)
+                if User is not None and role == 'user' and status=='1':
+                    auth_login(request, user)
+                    return redirect('patientdashboard')
+            elif Donor.objects.filter(user_id=id).exists():
+                donor = Donor.objects.filter(user_id=id).values()
+                for i in donor:
+                    role = i['role']
+                    status = i['status']
+                user = authenticate(request, username=username, password=password)
+                if user is not None and role == 'donor' and status == '1':
+                    auth_login(request, user)
+                    return redirect('donordashboard')
+            elif username == 'dell' and password == '1234':
+                return redirect('admindashboard')
+            else:
+                pass
         else:
-            pass
+            return redirect('logs')    
 
     context = {}
     return render(request, 'blood/logs.html', {})
-
+                
+        
 # single userpage view after each user login   
 def userprofile(request):
     if request.user:
         user = request.user
         data = Connect.objects.all().filter(user = user).values()
-        print(data)
         for i in data:
-            print(i)
             return render(request, 'patient/userprofile.html', {'i':i})
     return render(request, 'patient/userprofile.html')
 
@@ -146,7 +153,7 @@ def donor_register(request):
             elif User.objects.filter(email=email).exists():
                 return redirect('donorregister')
             else:
-                user = User.objects.create_user(username=username, email=email, password=password1)
+                user = User.objects.create_user(username=username, email=email, password=password1) 
                 user.save()
                 userdetail = models.Donor(user=user, name=name, age=age, group=group, address=address, mob=mob, date=date, profile_image=profile_pic, Lastdate=last_date, desease=desease, updated=updated, unit=unit, status=status, role=role)
                 userdetail.save()
@@ -164,15 +171,14 @@ def donor_profile(request):
     if request.user:
         donor = request.user
         data = Donor.objects.all().filter(user=donor).values()
-        print(data)
+
         for i in data:
-            print(i)
             return render(request, 'donor/donorprofile.html', {'i':i})
-        return render(request, 'donor/donorprofile.html')
+        
+        
             
 def donordata(request):
     donation = Donor.objects.all()
-    print()
     return render(request, 'admin/admin-donationinfo.html', {'donation':donation}) 
 
 def donorapproval(request, register_id):
@@ -210,6 +216,140 @@ def patientapproval(request, register_id):
 def approvedpatient(request):
     data = Connect.objects.all()
     return render(request, 'admin/approvedpatient.html', {"data":data})
-    
 
+# delete userprofile
+def deleteuserprofile(request, register_id):
+    d = Connect.objects.get(id=register_id)
+    d.delete()
+    return redirect('home')
+
+# update user
+def updateuserprofile(request, register_id):
+    update = Connect.objects.get(id=register_id)
+    return render(request, 'patient/userprofileupdate.html', {'i':update})
+
+def updateuser(request, register_id):
+    update= Connect.objects.get(id=register_id)
+    update.name = request.POST['name']
+    update.age = request.POST['age']
+    update.group = request.POST['group']
+    update.address = request.POST['address']
+    update.mob = request.POST['mob']
+    update.date = request.POST['date']
+    update.reason = request.POST['reason']
+    update.unit = request.POST['unit']
+    update.save()
+    return redirect('userprofile')
+
+def updatedonorprofile(request, register_id):
+    update = Donor.objects.get(id=register_id)
+    return render(request, 'donor/donorprofileupdate.html', {'i':update})
+
+def updatedonor(request, register_id):
+    update = Donor.objects.get(id=register_id)
+    update.name = request.POST['name']
+    update.age = request.POST['age']
+    update.group = request.POST['group']
+    update.address = request.POST['address']
+    update.mob = request.POST['mob']
+    update.date = request.POST['date']
+    update.desease = request.POST['desease']
+    update.unit = request.POST['unit']
+    update.save()
+    return redirect('donorprofile')
+
+def deletedonorprofile(request, register_id):
+    d = Donor.objects.get(id=register_id)
+    d.delete()
+    return redirect('home')
+
+def deleteapproveddonor(request, register_id):
+    d = Donor.objects.get(id=register_id)
+    d.delete()
+    return redirect('approveddonor')
+
+def deleteapproveduser(request, register_id):
+    d = Connect.objects.get(id=register_id)
+    d.delete()
+    return redirect('approvedpatient')
+def donorlist(request):
+    donorlist = Donor.objects.all().filter(status=1)
+    return render(request, 'patient/approveddonorlist.html', {'donation':donorlist})
+    
+    
+def blood_info(request, register_id):
+    u = Donor.objects.get(id=register_id)
+    return render(request, 'patient/bloodrequestform.html', {'u':u})
+
+def blood_bank(request):
+    if request.user:
+        user=request.user
+        if request.method == 'POST':
+            donorname=request.POST.get('donorname')
+            donorid=request.POST.get('donorid')
+            age=request.POST.get('age')
+            group = request.POST.get('group')
+            health = request.POST.get('health')
+            date = request.POST.get('date')
+            duedate = request.POST.get('duedate')
+            reason = request.POST.get('reason')
+            unit = request.POST.get('unit')
+            status = '0'
+            a = models.Bloodbank(user=user, donorname=donorname, age=age,donorid=donorid, group=group, health=health, date=date, duedate=duedate, reason=reason,unitrequest=unit, status=status)
+            a.save()
+            return redirect('home')
+        else:
+            return render(request, 'patient/bloodrequestform.html')
+
+def bloodbank_data(request):
+    data= Bloodbank.objects.all()
+    return render(request, 'admin/bloodrequest.html', {'data':data})  
+
+def bloodbank_approve(request, register_id):
+    data = Bloodbank.objects.get(id=register_id)
+    data.status=1
+    data.save()
+    data = Bloodbank.objects.all()
+    return render(request, 'admin/bloodrequest.html',{'data':data})
+
+
+def bloodbank_delete(request, register_id):
+    data = Bloodbank.objects.get(id=register_id)
+    data.delete()
+    return redirect('bloodbankdata')
+
+def approvedbloodrequest(request):
+    data = Bloodbank.objects.filter(status=1)
+    return render(request,'admin/approvedbloodrequest.html', {'data':data})  
+
+def patientrequest_to_donor(request):
+    if request.user:
+        donor =request.user
+        data = Bloodbank.objects.filter(donorname=donor).values()
+        for i in data:
+            user_id=i['user_id']   
+            patient=Connect.objects.filter(user_id=user_id).values()
+            context = {'i':i, 'patient':patient}
+            return render(request, 'donor/patientrequest.html', context)  
+            
+def patientrequestapprove(request, register_id):
+    data = Bloodbank.objects.get(id=register_id)
+    data.status = '2'
+    data.save()
+    data = Bloodbank.objects.all()
+    return render(request, 'donor/patientrequest.html', {'data':data})
+
+def patientrequestdelete(request, register_id):
+    data = Bloodbank.objects.get(id=register_id)
+    data.delete()
+    return render(request, 'donor/patientrequest.html')
+
+  
+def bloodrequestupdation(request):
+    if request.user:
+        user = request.user
+        if Bloodbank.objects.filter(user=user).exists():
+            data = Bloodbank.objects.filter(user=user).values()
+            context = {'data':data}
+            return render(request, 'patient/bloodrequestupdation.html',context)
 

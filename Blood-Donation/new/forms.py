@@ -1,4 +1,4 @@
-from new.models import Connect
+from new.models import Connect,Donor
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
@@ -8,6 +8,11 @@ from django.forms import ModelForm
 class ConnectForm(forms.ModelForm):
     class Meta:
         model = Connect
+        fields = '__all__'
+
+class DonorForm(forms.ModelForm):
+    class Meta:
+        model = Donor
         fields = '__all__'
 
 class UserCreateForm(UserCreationForm):

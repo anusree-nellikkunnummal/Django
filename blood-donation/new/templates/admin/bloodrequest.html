@@ -1,0 +1,53 @@
+  {% extends 'admin/adminbase.html' %}
+  {% block content %}
+
+   
+    <br><br>
+    <!-- <div class="container m-5 p-5"> -->
+     <H4 class="text-center">BLOOD REQUEST DETAILS</H4><br>
+    <table class="table table-striped table-light text-dark">
+        <thead>
+        
+          <tr>
+            <th scope="col">Patient Name</th>
+            <th scope="col">Donor Name</th>
+            <th scope="col">Donor Age</th>
+            <th scope="col">Blood Group</th>
+            <th scope="col">Blood request date</th>
+            <th scope="col">Unit requested(ml)</th>
+            <th scope="col">Reason for Blood</th>
+            <th scope="col">Due date</th>
+                
+          </tr>
+        </thead>
+        <tbody>
+           
+        {% for t in data %}
+        {% if t.status == "0" %}
+
+          <tr>
+            <td>{{t.user}}</td>
+            <td>{{t.donorname}}</td>
+            <td>{{t.age}}</td>
+            <td>{{t.group}}</td>
+            <td>{{t.date}}</td>
+            <td>{{t.unitrequest}}</td>
+            <td>{{t.reason}}</td>
+            <td>{{t.duedate}}</td>
+            
+            
+            <td>
+                <a href="{% url 'bloodbankapprove' t.id %}"><input type="submit" class="btn " value="Approved"></a>
+                <a href="{% url 'bloodbankdelete' t.id %}"><input type="submit" class="btn " value="Rejected"></a>
+            </td>
+            
+            
+        </tr> 
+        {% endif %} 
+        {% endfor %}     
+        </tbody>
+    </table>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+  
+  {% endblock content %}

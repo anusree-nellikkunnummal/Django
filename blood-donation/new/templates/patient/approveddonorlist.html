@@ -1,0 +1,45 @@
+{% extends 'patient/patientbase.html' %}
+{% block content %}
+
+
+<br><br>
+<div class="container">
+    <H4 class="text-center">Donor List</H4><br>
+    <table class="table table-light table-hover table-bordered table-striped">
+        <thead class="bg-info">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Unit</th>
+                <th scope="col">Disease</th>
+                <th scope="col">Date</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in donation %}
+            <tr>
+                <td>{{i.name}}</td>   
+                <td>{{i.age}}</td>
+                <td>{{i.group}}</td>
+                <td>{{i.unit}}</td>
+                <td>{{i.desease}}</td>
+                <td>{{i.date}}</td>
+                <td><a href="{% url 'bloodinfo' i.id %}"><button class="label warning">Make Request</button></a></td>       
+                
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    
+    </table>
+</div>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+
+
+{% endblock %}

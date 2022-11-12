@@ -41,6 +41,22 @@ class Donor(models.Model):
         return self.name
 
 
+class Bloodbank(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    donorname = models.CharField(max_length = 20)
+    age = models.IntegerField()
+    group = models.CharField(max_length = 10)
+    health = models.CharField(max_length = 50)
+    date = models.DateTimeField(auto_now_add=True)
+    duedate = models.DateField()
+    reason = models.CharField(max_length = 50)
+    status = models.CharField(max_length = 20)
+    unitrequest = models.IntegerField()
+    donorid = models.CharField(max_length = 3)
+
+    def __str__(self):
+        return self.donorname
+
 
 
     

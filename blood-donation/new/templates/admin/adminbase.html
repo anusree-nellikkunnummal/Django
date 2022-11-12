@@ -1,12 +1,14 @@
+{% load statics %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADMIN</title>
+    <title>{% block title %}admin base{% endblock title %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 <style>
 .row{
@@ -134,7 +136,7 @@ body{
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#"><img src="static/images/logo-ventid (2).png" alt=""></a>
+    <a class="navbar-brand" href="#"><img src="static/images/logo-ventidd.png" alt=""></a>
   
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -152,14 +154,13 @@ body{
       
         <ul>
             <li><a style="text-decoration:none;" href="/"><i class="fas fa-home"></i>Home</a></li>
-            <li><a style="text-decoration:none;" href=""><i class="fas fa-user"></i>Donor</a></li>
-            <li><a style="text-decoration:none;" href=""><i class="fas fa-user-injured"></i>Patient</a></li>
+            <li><a style="text-decoration:none;" href="{% url 'donordata' %}"><i class="fas fa-user"></i>Donor</a></li>
             <li><a style="text-decoration:none;" href="{% url 'approveddonor' %}"><i class="fas fa-hand-holding-medical"></i>Approved Donors</a></li>
-            <li><a style="text-decoration:none;" href="{% url 'donordata' %}"><i class="fas fa-hand-holding-medical"></i>Donations</a></li>
-            <li><a style="text-decoration:none;" href="{% url 'patientrequest' %}"><i class="fas fa-sync-alt"></i>Blood Requests</a></li>
+            <li><a style="text-decoration:none;" href="{% url 'patientrequest' %}"><i class="fas fa-user-injured"></i>Patient</a></li>
             <li><a style="text-decoration:none;" href="{% url 'approvedpatient' %}"><i class="fas fa-sync-alt"></i>Approved Patient</a></li>
-            <li><a style="text-decoration:none;" href=""><i class="fas fa-history"></i>Request</a></li>
-            <li><a style="text-decoration:none;" href=""><i class="fas fa-hand-holding-water"></i>Blood Stock</a></li>
+            <li><a style="text-decoration:none;" href="{% url 'bloodbankdata' %}"><i class="fas fa-sync-alt"></i>Blood Requests</a></li>
+            <li><a style="text-decoration:none;" href="{% url 'approvedbloodrequest' %}"><i class="fas fa-sync-alt"></i>Approved Blood Requests</a></li>
+           
            
         </ul> 
       
@@ -170,6 +171,7 @@ body{
 
 {% endblock content %}
 <!-- Footer -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <section class="text-center text-white" style="background-color: #d70c0c;">
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);"></div>
 </section>
