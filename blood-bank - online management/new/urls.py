@@ -1,0 +1,51 @@
+from django.urls import path
+from new import views
+
+urlpatterns = [
+
+    path('', views.home, name='home'),
+    path('register', views.register, name='register'),
+    path('logs', views.logs, name='logs'),
+    path('userprofile', views.userprofile, name='userprofile'),
+    # path('adminprofile', views.adminprofile, name='adminprofile'),
+    # path('usersprofile', views.usersprofile, name='usersprofile'),
+    path('donordashboard', views.donor_dashboard, name='donordashboard'),
+    path('admindashboard', views.admin_dashboard, name='admindashboard'),
+    path('patientdashboard', views.patient_dashboard, name='patientdashboard'),
+    path('admindonation', views.admindonation, name='admindonation'),
+    path('adminrequest', views.adminrequest, name='adminrequest'),
+    path('donorregister', views.donor_register, name='donorregister'),
+    path('donorprofile', views.donor_profile, name='donorprofile'),
+    path('usermakerequest', views.usermakerequest, name='usermakerequest'),
+    path('userrequesthistory', views.userrequesthistory, name='userrequesthistory'),
+    path('donordata', views.donordata, name='donordata'),
+    path('donorapproval/<int:register_id>', views.donorapproval, name='donorapproval'),
+    path('approveddonor', views.approveddonor, name='approveddonor'),
+    path('rejectdonor/<int:register_id>', views.rejectdonor, name='rejectdonor'),
+    path('patientrequest', views.patientrequest, name='patientrequest'),
+    path('removepatient/<int:register_id>', views.removepatient, name='removepatient'),
+    path('patientapproval/<int:register_id>', views.patientapproval, name='patientapproval'),
+    path('approvedpatient', views.approvedpatient, name='approvedpatient'),
+    path('updateuserprofile/<int:register_id>', views.updateuserprofile, name='updateuserprofile'),
+    path('deleteuserprofile<int:register_id>', views.deleteuserprofile, name='deleteuserprofile'),
+    path('updateuser/<int:register_id>', views.updateuser, name='updateuser'),
+    path('updatedonorprofile/<int:register_id>', views.updatedonorprofile, name='updatedonorprofile'),
+    path('updatedonor/<int:register_id>', views.updatedonor, name='updatedonor'),
+    path('deletedonorprofile<int:register_id>', views.deletedonorprofile, name='deletedonorprofile'),
+    path('deleteapproveddonor/<int:register_id>', views.deleteapproveddonor, name='deleteapproveddonor'),
+    path('deleteapproveduser<int:register_id>', views.deleteapproveduser, name='deleteapproveduser'),
+    path('donorlist', views.donorlist, name='donorlist'),
+    path('bloodinfo/<int:register_id>', views.blood_info, name='bloodinfo'),
+    path('bloodbank', views.blood_bank, name='bloodbank'),
+    path('bloodbankdata', views.bloodbank_data, name='bloodbankdata'),
+    path('bloodbankapprove/<int:register_id>', views.bloodbank_approve, name='bloodbankapprove'),
+    path('bloodbankdelete/<int:register_id>', views.bloodbank_delete, name='bloodbankdelete'),
+    path('approvedbloodrequest', views.approvedbloodrequest, name='approvedbloodrequest'),
+    path('patientrequest_to_donor', views.patientrequest_to_donor, name='patientrequest_to_donor'),
+    path('patientrequestapprove/<int:register_id>', views.patientrequestapprove, name='patientrequestapprove'),
+    path('patientrequestdelete/<int:register_id>', views.patientrequestdelete, name='patientrequestdelete'),
+    path('bloodrequestupdation', views.bloodrequestupdation, name='bloodrequestupdation'),
+
+    
+
+] 
