@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+{% extends 'admins/base.html' %}
+{% block content %}
+<body>
+   
+  
+    <!-- <div class="container m-5 p-5"> -->
+     
+    <table class="table table-striped table-light text-dark">
+        <thead>
+          <tr>
+            <th scope="col">Subject</th>
+            <th scope="col">Student</th>
+            <th scope="col">Class</th>
+            <th scope="col">Section</th>
+            <th scope="col">Mark</th>
+            <th scope="col">Comments</th>
+       
+               
+          </tr>
+        </thead>
+        <tbody>
+          {% for data in datas %}
+   
+
+          <tr>
+
+            <td>{{data.subject}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.cls}}</td>
+            <td>{{data.section}}</td>
+            <td>{{data.mark}}</td>
+            <td>{{data.action}}</td>
+            
+
+           
+        </tr> 
+      
+        {% endfor %}     
+        </tbody>
+    </table>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <!-- </div> -->
+</body>
+{% endblock content %}
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+</html>

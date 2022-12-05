@@ -1,0 +1,36 @@
+{% extends 'student/base.html' %}
+{% block title %}Student profile{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid mt-5">  
+    <div class="row">
+      <div class="col-lg-3 mx-auto">
+            <div class="card" >
+              <h3 class="card-title text-center p-3">Welcome {{data.fullname}}</h3>
+              <img src="/media/{{data.photo}}" class="card-img-top mx-auto" alt="..." style=" height:200px; width:200px">
+              <div class="card-body">
+                <a href="" class="card-link"><i class="fa-solid fa-user-pen fa-1x"></i></a>
+                <a href="" class="card-link"><i class="fa-solid fa-trash fa-1x"></i></a>
+              </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Full Name: {{data.name}}</li>
+                <li class="list-group-item">Class: {{data.clas}}</li>
+                <li class="list-group-item">Section: {{data.section}}</li>
+                <li class="list-group-item">Roll email: {{data.email}}</li>
+                <li class="list-group-item">Contact Number: {{data.contact}}</li>
+                <li class="list-group-item">Contact address: {{data.address}}</li>
+                <li class="list-group-item">Date of birth: {{data.dob}}</li>
+                <li class="list-group-item">Parent Name: {{data.parent}}</li>
+                <li class="list-group-item">Roll Number: {{data.rollid}}</li>
+                <li class="list-group-item">Join Date: {{data.joindate}}</li>
+            </ul>
+                
+            </div>
+        </div>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br>
+
+
+{% endblock content %}
