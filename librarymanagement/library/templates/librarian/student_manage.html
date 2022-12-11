@@ -1,0 +1,48 @@
+
+{% extends 'librarian/base.html' %}
+{% block content %}
+
+   
+  
+    <!-- <div class="container m-5 p-5"> -->
+     <H4 class="text-center">Student Management </H4><br>
+    <table class="table table-striped table-light text-dark">
+        <thead>
+          <tr>
+            <th scope="col">Student Name</th>
+            <th scope="col">Roll Number</th>
+            <th scope="col">Contact Number</th>
+            <th scope="col">Join Date</th>
+            <th scope="col">Expiry Date</th>
+            <th scope="col">Photo</th>     
+          </tr>
+        </thead>
+        <tbody>
+           
+        {% for student in students %}
+        {% if student.status == "0" %}
+
+          <tr>
+            
+            <th scope="row">{{student.fullname}}</th>
+            <td>{{student.rollnumber}}</td>
+            <td>{{student.number}}</td>
+            <td>{{student.joindate}}</td>
+            <td>{{student.expirydate}}</td>
+          
+            
+            <td>
+                <a href="{% url 'approve_student' student.id %}"><input type="submit" class="btn " value="Approved"></a>
+                <a href="{% url 'student_reject' student.id %}"><input type="submit" class="btn " value="Rejected"></a>
+            </td>
+           
+        </tr> 
+        {% endif %} 
+        {% endfor %}     
+        </tbody>
+    </table>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <!-- </div> -->
+
+{% endblock content %}
+

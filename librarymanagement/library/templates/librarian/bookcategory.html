@@ -1,0 +1,145 @@
+{% extends 'librarian/base.html' %}
+{% block title %}Book Category{% endblock title %}
+
+
+    <style>
+
+    .row{
+        padding: 5px;
+    }
+    .fa-tint{     
+        color: rgb(49, 106, 124);    
+    }
+    .blood{
+        float: right;
+    }
+    .fa-users{     
+        color: blue; 
+        font-size: 3ex;   
+    }
+    .fa-spinner{     
+        color: blue; 
+        font-size: 3ex;   
+    }
+    .fa-check-circle{     
+        color: blue; 
+        font-size: 3ex;   
+    }
+    .xyz{     
+        color: blue; 
+        font-size: 3ex;   
+    }
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+   background-color: #f3f5f9;
+}
+.bg-danger {
+    background-color: #22746f!important;
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 200px;
+  height: 100%;
+  background: 	#d6e3f1;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid #f7f7f70d;
+  border-top: 1px solid rgba(238, 224, 224, 0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #594f8d;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #ededed;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+@media (max-height: 500px){
+  .social_media{
+    display: none !important;
+  }
+}
+.fa-sign-out-alt{
+    color: white;
+    font-size: 2ex;
+}
+
+</style>
+
+{% block content %}
+<div class="row">
+    <a href="{% url 'create_book_category' %}"><button class="btn  btn-info">Add Category</button></a>
+</div>
+   
+<div class="wrapper">
+    <div class="sidebar">
+        {% for i in data %}
+        <ul>
+            <li><a style="text-decoration:none;" href="{% url 'create_book' i.id %}">{{i.category}}</a>
+          
+        </ul>   
+        {% endfor %}
+    </div>
+    <div class="main_content">
+
+
+{% endblock content %}

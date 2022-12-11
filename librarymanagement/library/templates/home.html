@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+
+    
+            <header>
+                <!-- Intro settings -->
+                <style>
+                  /* Default height for small devices */
+                  #intro-example {
+                    height: 400px;
+                  }
+              
+                  /* Height for devices larger than 992px */
+                  @media (min-width: 992px) {
+                    #intro-example {
+                      height: 1100px;
+                    }
+                  }
+                </style>
+            
+                <!-- Background image -->
+                <div
+                  id="intro-example"
+                  class=" text-center bg-image"
+                  style="background-image: url('../static/images/lib.jpg');"
+                >
+                  <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                      <div class="text-white">
+                        <h1 class="mb-3">Nothing is pleasanter than exploring a library.</h1>
+                        <a
+                          class="btn btn-outline-light btn-lg m-2"
+                          href="{% url 'logs' %}"
+                          role="button"
+                          rel="nofollow"
+                          target="_blank"
+                        >Librarian</a>
+                        <a
+                          class="btn btn-outline-light btn-lg m-2"
+                          href="{% url 'logs' %}"
+                          target="_blank"
+                          role="button"
+                        >Student</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Background image -->
+              </header>
+        </div>
+
+
+
+
+
+{% endblock content %}

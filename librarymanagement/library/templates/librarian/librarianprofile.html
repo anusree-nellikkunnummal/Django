@@ -1,0 +1,29 @@
+{% extends 'librarian/base.html' %}
+{% block title %}Librarian Profile{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid mt-5">  
+    <div class="row">
+      <div class="col-lg-3 mx-auto">
+            <div class="card" >
+              <h3 class="card-title text-center p-3">Welcome {{i.name}}</h3>
+              <p class="card-text text-info text-center">"Libraries store the energy that fuels the imagination. They open up windows to the world and inspire us to explore and achieve, and contribute to improving our quality of life."</p>
+              <img src="/media/{{i.photo}}" class="card-img-top mx-auto" alt="..." style=" height:200px; width:200px">
+              <div class="card-body">
+                <a href="{% url 'update_librarian_profile' i.id %}" class="card-link"><i class="fa-solid fa-user-pen fa-1x"></i></a>
+                <a href="{% url 'delete_librarian_profile' i.id %}" class="card-link"><i class="fa-solid fa-trash fa-1x"></i></a>
+              </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Full Name: {{i.name}}</li>
+                <li class="list-group-item">Email: {{i.user__email}}</li>
+                <li class="list-group-item">Contact Number: {{i.number}}</li>
+                </ul>
+            </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br>
+
+
+{% endblock content %}

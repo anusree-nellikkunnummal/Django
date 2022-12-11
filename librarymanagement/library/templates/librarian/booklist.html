@@ -1,0 +1,35 @@
+{% extends 'librarian/base.html' %}
+{% block title %}Book list{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        
+    </div>
+    <div class="row">
+        {% for i in data %}
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light" style="height: 200px;">
+                  <img src="/media/{{i.book_photo}}" class="img-fluid"/>
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Title: {{i.book_title}}</h5>
+                  <p class="card-text">Category: {{i.book_category}}</p>
+                  <p class="card-text">Author: {{i.book_author}}</p>
+                  <p class="card-text">Pages: {{i.book_pages}}</p>
+                  <p class="card-text">Summory: {{i.book_summory}}</p>
+                  <a href="#!" class="btn btn-primary">Button</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock content %}
