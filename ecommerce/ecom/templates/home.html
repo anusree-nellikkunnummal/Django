@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Calibre home{% endblock title %}
+{% block content %}
+<header>
+   <!-- ==============================Background image==================== -->
+    <div
+      class="p-5 text-center bg-image"
+      style="
+        background-image: url('../static/img/watchheader6.avif');
+        height: 600px;" >
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <div class="text-white">
+            <h1 class="mb-3">Find your dream watch on the leading marketplace for luxury watches.</h1>
+            <div class="input-group">
+                <div class="form-outline">
+                  <input type="search" id="form1" class="form-control" />
+                  <label class="form-label text-white" for="form1">Search</label>
+                </div>
+                <button type="button" class="btn btn-warning">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- =============================Background image======================= -->
+  </header>
+  <main>
+    <!-- ============================rating cards===================================== -->
+    
+    <div class="container mb-5 mt-5 ms-5 ps-4">
+        
+        <h3 class="text-lg-center leadtext">The Leading Marketplace for Luxury Watches Since 2003</h3>
+        <div class="row mt-5 ">
+        <div class="col-lg-3"></div>
+        <div class="card border border-warning shadow-0 mb-3 me-3" style="max-width: 11rem;">
+          <div class="card-header"></div>
+          <div class="card-body">
+            <h5 class="card-title">4.8 out of 5 stars</h5>
+            <p class="card-text">from 125,000 reviews worldwide</p>
+          </div>
+        </div>
+        <div class="card border border-warning shadow-0 mb-3 me-3" style="max-width: 11rem;">
+          <div class="card-header"></div>
+          <div class="card-body">
+            <h5 class="card-title">9 million</h5>
+            <p class="card-text">watch enthusiasts use Chrono24 each month</p>
+          </div>
+        </div>
+        <div class="card border border-warning shadow-0 mb-3 me-3" style="max-width: 11rem;">
+          <div class="card-header"></div>
+          <div class="card-body">
+            <h5 class="card-title">Over 200,000</h5>
+            <p class="card-text">customers choose Buyer Protection annually</p>
+          </div>
+        </div>
+        <div class="card border border-warning shadow-0 mb-3 me-3" style="max-width: 11rem;">
+          <div class="card-header"></div>
+          <div class="card-body">
+            <h5 class="card-title">More than 25,000</h5>
+            <p class="card-text">Trustworthy sellers</p>
+          </div>
+        </div>
+        
+        </div>
+   
+    <!-- ============================main===================================== -->  
+  </main>
+  <section>
+    <div class="container">
+      <div class="row d-flex justify-content-center g-0">
+        <div class="col-lg-5 cardbg text g-0">
+          <div class="card bg-dark text-white cardtext">
+            <div class="card-img-overlay">
+              <h4 class="card-title">Calibre24 Buyer Protection</h4>
+              <p class="card-text">
+                <ul class="mb-5 cardli">
+                  <li class="mb-2">Payment Via Escrow Service</li>
+                  <li class="mb-2">Authenticity Guarantee</li>
+                  <li class="mb-2">Global money-back Guarantee</li>
+                  <li class="mb-2">Strict dealer guidlines</li>
+                  <li class="mb-2">Insured Shipments</li>
+                  <li class="mb-5">Calibre24 Security&quality team</li>
+                  <button class="btn btn-outline-light">Learn more about the security on Calibre24</button>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 ml-0 cardborder">
+          <div class="card bg-dark text-white">
+            <img src="../static/img/girlwatching.jpg" class="card-img" alt="Stony Beach"/>
+            <div class="card-img-overlay">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <main>
+  <!-- ============================watch category===================================== -->
+    <div class="container mt-5 ">
+      <div class="col-lg-7"></div>
+      <h4 class="text-center exploretext mt-5 mb-5 pt-5 text-left ps-5">Explore Calibre24</h4>
+      <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center watch_category_bg">
+        {% for i in item %}
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="../static/img/watch02.jpg" class="card-img-top" alt="Palm Springs Road"/>
+            <div class="card-body">
+              <h5 class="card-title"><strong>Recently added</strong></h5>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>    
+  </main>
+<!-- ============================watch most popular models ===================================== -->
+<div class="container mt-5 ">
+  <div class="col-lg-7"></div>
+  <h4 class="text-center exploretext mt-5 mb-5 pt-5 text-left ps-5">Our Most Populor Models</h4>
+  <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center watch_category_bg">
+    {% for i in item %}
+    <div class="col-lg-2">
+      <div class="card">
+        <img src="../static/img/watch04.jpg" class="card-img-top" alt="Palm Springs Road"/>
+        <div class="card-body">
+          <h5 class="card-title"><strong>Recently added</strong></h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+</div>
+<!--==================== TESTIMONIAL ====================-->
+<div class="container" >
+  <section class="testimonial section container" id="testimonial__bg">
+
+  
+  
+  </section>
+</div>
+{% endblock content %}

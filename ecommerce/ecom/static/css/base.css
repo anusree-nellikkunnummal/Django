@@ -1,0 +1,137 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; 
+} 
+*{
+    font-family:'Montserrat', sans-serif;
+    font-size: 0.9rem;
+
+}
+body{
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.titlenav{
+    background-color: darkslategray;
+    min-height: 20px;
+}
+.ropdown-menu{
+    min-width: inherit;
+}
+.dropdown-menu{
+    background-color: darkslategray;
+}
+.footer_background{
+    background-color: darkslategray;    
+}
+.footer{
+    margin-top: auto;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 15vw);
+    grid-gap: 15px
+   
+}
+.gallery__img {
+    width: 100%;
+    max-height: 100%;
+    object-fit:cover;
+}
+.cardbg{
+    background-color: rgb(232, 170, 55);
+}
+.cardtext{
+   font-weight: bolder;
+}
+.cardli{
+    list-style-type:none;
+    padding-left: 1.5em;
+    position: relative;
+}
+.cardli li::before{
+    content:'✓';
+    color: rgb(250, 237, 151);
+    left:0;
+    position:absolute;
+}
+.cardborder{
+    border-radius: 30px;
+}
+.leadtext{
+    font-weight:800px;
+}
+.exploretext{
+    font-weight: 700;
+    font-weight: bolder;
+}
+#testimonial__bg{
+    background-color: rgb(233, 231, 148);
+}
+.form-bg{
+    background-color:rgb(225, 174, 78);  
+}
+.text_result{
+    font-weight: 500;
+    font-size: 2rem;
+}
+.news-bg {
+    background-color: darkslategrey;
+}
+.pay_text{
+    color:rgb(160, 240, 160)
+}
+.drop-menu li a{
+    width: 100%;
+    display: block;
+    padding:0 0 0 15px;
+    font-weight: 400;
+    border-radius: 0px;
+}
+.mega-box{
+    position:absolute;
+    top:0;
+    padding-left:2em;
+    padding-bottom: 2em;
+    width:65em;
+    background-color: rgb(255, 255, 255);
+
+}
+.mega-box.content{
+    
+    width:100%;
+    justify-content: center;
+ 
+
+}
+.mega-links{
+    list-style-type:none; 
+}
+.mega-links a{
+    color:rgb(37, 37, 37);
+    font-size: 0.9em;
+}
+.mega-links a:hover{
+    color:darkorange;
+}
+.text-links a{
+    color:rgb(33, 30, 30);
+    font-size: 0.7;
+}
+.tax{
+    color:darkgreen
+}
+.con{
+    display: flex;
+    color:aqua;
+}
+.order{
+    background-color: chocolate;
+}
