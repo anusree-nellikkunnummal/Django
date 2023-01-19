@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Single_item{% endblock title %}
+{% block content %}
+<style>
+.tax{
+    color:darkgreen;
+}
+.bag{
+    background-color:rgb(126, 170, 177);
+}
+.wish{
+    background-color:rgb(221, 189, 158);
+
+}
+#stars{
+    font-size:xx-large;
+    color:chocolate;
+}
+#brand{
+   font-size:x-large;
+   font-weight:bolder; 
+}
+.arrange{
+  display: flex;
+  justify-content: center;
+}
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5">
+              <div class="col-lg-12">
+                <img src="/media/{{i.photo}}" class="img-fluid" alt="watch">
+              </div>
+              <div class="row d-flex justify-content-center g-1 mt-1">
+                <div class="col-lg-3"><img src="/media/{{i.photo}}" class="img-fluid" alt="watch_view"></div>
+                <div class="col-lg-3"><img src="/media/{{i.subimage1}}" class="img-fluid" alt="watch_view"></div>
+                <div class="col-lg-3"><img src="/media/{{i.subimage2}}" class="img-fluid" alt="watch_view"></div>
+                <div class="col-lg-3"><img src="/media/{{i.subimage3}}" class="img-fluid" alt="watch_view"></div>
+              </div>
+              </div>
+        <div class="col-lg-7">
+          <div class="row"><p><span class="" id="brand">{{i.brand.brand_name}}</span><br> {{i.model_name}}</p></div>
+          <div class="row mt-1"></div>
+          <hr>
+          ₹ {{i.price}}
+          <p class="tax text-success"><strong>Inclusive of all taxes</strong></p>
+          <div class="col-lg-12 d-flex">
+         
+            <div class="div"><a href="{% url 'add_bag' i.id %}"><div class="col-lg bag p-3 mx-2"><i class="fa-solid fa-bag-shopping mx-1 add-btn update-cart"></i>ADD TO BAG</div></a></div>
+            <div class="div"><a href="{% url 'add_wishlist' i.id %}"><div class="col-lg border wish p-3"><i class="fa-regular fa-heart mx-1"></i>WISH LIST</div></a></div>
+          </div>
+          <div class="row">
+            <h6 class="mt-2">Quantity</h6>
+            <form action="{% url 'add_bag' i.id %}" method="post">
+
+              {% csrf_token %}
+              <div class="input-group mb-3 col-lg-4">
+                <input type="text" class="" placeholder="Enter Quantity" name="qty" aria-label="basic-addon1">
+                <div class="input-group-prepend"> 
+                  <input type="submit" value="add"> 
+                </div>
+            </form>
+            </div>
+          </div>
+          <!-- ----------------- -->
+          <div class="row">
+            <div class="col-lg-6">
+              <ul>
+                <li>100% Original Products</li>
+                <li>Pay on delivery might be available</li>
+                <li> Easy 30 days returns and exchanges</li>
+                <li>Try & Buy might be available</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul><strong>EMI Option availabe</strong><ul>
+                <li>EMI starting from Rs.{{i.emi}}/month</li>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-lg-6">
+              <h6><strong>PRODUCT DETAILS</strong></h6>
+              <p>{{i.description}}</p>
+            </div>
+          </div>
+          <hr>
+          <!-- ------------------- -->
+          </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

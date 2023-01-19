@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+} 
+.tax{
+    color:darkgreen;
+}
+.bag{
+    background-color:rgb(126, 170, 177);
+}
+.wish{
+    color:deeppink
+
+}
+#stars{
+    font-size:xx-large;
+    color:chocolate;
+}
+#brand{
+    color: aqua;
+    font-size:90px;
+}

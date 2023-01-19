@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}Single_item{% endblock title %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<div class="container">
+    <div class="row">
+      <div class="input-group">
+        <div class="form-outline">
+          <input id="search-input" type="search" id="form1" class="form-control" />
+          <label class="form-label text-muted" for="form1">search through 100000 watched from 119 countries</label>
+        </div>
+        <button id="search-button" type="button" class="btn btn-dark" >
+          <i class="fas fa-search"></i>
+        </button>
+      </div>     
+    </div>
+    <div class="row">
+<!-- ============================watch most popular models ===================================== -->
+    
+    
+    <h5 class="text_result text-left">We've found 93121 results for "{{item.first.category_name}}"</h5>
+    <h6 class="text-left exploretext mt-1 mb-2 pt-2 text-left ps-5">Our Most Populor Models</h6>
+    <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center watch_category_bg">
+    {% for i in item %}
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="/media/{{i.photo}}" class="card-img-top" alt="Palm Springs Road"/>
+            <div class="card-img-overlay">
+              <i class="fa-regular fa-heart"></i>
+            </div>    
+          </div>
+          <div class="text-links" >
+              <a href="{% url 'select_item' i.id %}" ><p class="">{{i.brand_name}}<br><strong>{{i.model_name}}</strong> <br>from RS {{i.price}}</p></a>
+           </div>    
+        </div>
+      {% endfor %}
+      </div>
+  </main>
+  </div>
+
+<!-- ===============================list of watches===================== -->
+<div class="div  d-flex justify-content-lg-between">
+  <button type="button" class="btn btn-secondary btn-rounded px-5 ">Brand</button>
+  <button type="button" class="btn btn-secondary btn-rounded px-5 ">Model</button>
+  <button type="button" class="btn btn-secondary btn-rounded px-5 ">Price</button>  
+  <button type="button" class="btn btn-secondary btn-rounded px-5 ">Case size</button>
+  <button type="button" class="btn btn-secondary btn-rounded px-5 ">Year</button>
+  <button type="button" class="btn btn-dark btn-rounded px-5 ">Filter</button>
+</div>
+<div class="container mt-5 ">
+    <div class="col-lg-7"></div>
+    <p class="text-left exploretext mt-5 mb-5 pt-5 text-left ps-5"><strong>93,113 listings</strong> including promoted listings</p>
+    <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center watch_category_bg">
+      {% for i in item %}
+      <div class="col-lg-2">
+        <div class="card">
+          <img src="../static/img/watch1.jpg" class="card-img-top" alt="Palm Springs Road"/>
+          <div class="card-img-overlay">
+            <i class="fa-regular fa-heart"></i>
+          </div>    
+        </div>
+        <div class="">
+            <h5 class=""><strong>Rolex Lady-Datejust</strong></h5>
+            <p>Ladies Datejust 26mm Blue Roman Numerals Dial 179174 Diamond/Sapphire Bezel Steel Ladies Watch</p>
+            <p>Rs. 10000</p>
+         </div>    
+      </div>
+      {% endfor %}
+    </div>
+
+
+    <!-- news letter -->
+  <div class="div news-bg text-center text-light mb-3 py-4">
+    <h5>You Didn't Subscribe to Our News Letter Yet! <br>
+      Get excludive Offers and Updates Sent directly to Inbox </h5>
+    <a href="#" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Primary link</a>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center watch_category_bg">
+    {% for i in item %}
+    <div class="col-lg-2">
+      <div class="card">
+        <img src="../static/img/watch1.jpg" class="card-img-top" alt="Palm Springs Road"/>
+        <div class="card-img-overlay">
+          <i class="fa-regular fa-heart"></i>
+        </div>    
+      </div>
+      {% endfor %}
+  <!-- best payment CalibreScrow -->
+      <div class="div news-bg text-center text-light mb-3 py-4">
+        <h5><span class="pay_text"> Calibre24 Escrow Services</span>
+          Most Secured way to pay </h5>
+        <a href="#" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Primary link</a>
+      </div>
+</div> 
+<!-- container closed -->
+</main>
+</div>
+</div>
+
+{% endblock content %}
